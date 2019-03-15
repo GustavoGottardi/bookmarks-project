@@ -15,9 +15,11 @@ class TagList extends React.Component {
         }
     }
 
-    componentWillUpdate(newProps, newState) {
-        if (newProps.tags !== this.props.tags) {
+    componentWillReceiveProps(newProps, newState) {
+
+        if (newProps.tags.length !== this.props.tags.length) {
             this.setState({ tags: newProps.tags });
+            console.log(this.state.tags)
         }
     }
 
@@ -26,18 +28,18 @@ class TagList extends React.Component {
             <div class="tag_list">
                 <Container>
                     {this.state.tags.map((tags, index) =>
-                        <Row>
+                        <Row key={index}>
                             <Col sm={10}>
                                 <div class="name">{tags.name}</div>
                                 <div class="url">{tags.url}</div>
                                 <div class="tag_content">
                                     {tags.tags.map((tag, i) =>
-                                        <span class="tags">{tag} <span onClick={() => this.handleDeleteTagOfItem(i, index)}>(x)</span></span>
+                                        <span key={i} class="tags">{tag} <span onClick={() => this.handleDeleteTagOfItem(i, index)}>(x)</span></span>
                                     )}
                                 </div>
                             </Col>
                             <Col sm={2}>
-                                <a href="javascript:void(0);" class="trash" onClick={this.handleDeleteItem(index)}>Excluir</a>
+                                <a href="#" class="trash" onClick={() => this.handleDeleteItem(index)}>Excluir</a>
                             </Col>
                         </Row>
                     )}

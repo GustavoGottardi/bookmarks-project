@@ -77,6 +77,11 @@ class HomeContainer extends React.Component {
     addTag(e) {
         e.preventDefault();
         this.props.addTag(this.state.tagList);
+        this.setState({tagList: {
+            name: '',
+            url: '',
+            tags: []
+        }});
         this.formAddTag.reset();
     }
 
