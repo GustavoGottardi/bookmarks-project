@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import { tagReducers } from './tagReducers';
+import { tagReducers2 } from './tagReducers';
 
 export const Reducers = combineReducers({
-    addTag: tagReducers,
-    removeTagOfItem: tagReducers,
-    deleteItem: tagReducers
+    tagReducers: tagReducers2
 });

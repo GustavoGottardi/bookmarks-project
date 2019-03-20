@@ -18,7 +18,7 @@ class TagList extends React.Component {
     }
 
     componentWillReceiveProps(newProps, newState) {
-
+        console.log(newProps);
         if (newProps.tags.length !== this.props.tags.length) {
             this.setState({ tags: newProps.tags });
             this.setState({ filteredTags: newProps.tags });
@@ -40,7 +40,7 @@ class TagList extends React.Component {
                                 <div class="line url">{tags.url}</div>
                                 <div class="line tag_content">
                                     {tags.tags.map((tag, i) =>
-                                        <span key={i} class="tags">{tag} <span onClick={() => this.handleDeleteTagOfItem(i, index)}>(x)</span></span>
+                                        <span key={i} class="tags">{tag} <span onClick={() => this.handleDeleteTagOfItem(i, index)}> x</span></span>
                                     )}
                                 </div>
                             </Col>
@@ -83,7 +83,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({ removeTagOfItem, deleteItem }, dispatch);
 
 const mapStateToProps = store => ({
-    tags: store.addTag,
+    tags: store.tagReducers,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TagList);

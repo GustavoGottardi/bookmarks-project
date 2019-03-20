@@ -45,6 +45,10 @@ class TagInput extends React.Component {
             outline: 'none',
             border: 'none',
             width: 'inherit'
+        },
+
+        span_tag: {
+            marginLeft: '10px',
         }
       };
       return (
@@ -53,7 +57,7 @@ class TagInput extends React.Component {
             {this.state.items.map((item, i) =>
               <li key={i} style={styles.items} onClick={this.handleRemoveItem(i)}>
                 {item}
-                <span>(x)</span>
+                <span style={styles.span_tag}>x</span>
               </li>
             )}
             <input

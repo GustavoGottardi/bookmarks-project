@@ -124,7 +124,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({ addTag }, dispatch);
 
 const mapStateToProps = store => ({
-    tags: store.addTag
+    tags: store.tagReducers
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
