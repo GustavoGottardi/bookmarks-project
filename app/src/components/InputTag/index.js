@@ -16,10 +16,6 @@ class TagInput extends React.Component {
         this.handleTagsArray = this.props.handleTagsArray;
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log('Aqui');
-    // }
-
     componentWillReceiveProps(nextProps){
         if(this.props.revision != nextProps.revision){
             this.setState({items: []});
@@ -30,25 +26,25 @@ class TagInput extends React.Component {
       const styles = {
         container: {
             border: '1px solid #ddd',
-            padding: '5px',
+            padding: '0px',
             borderRadius: '5px',
         },
 
         items: {
             display: 'inline-block',
-            padding: '2px',
-            border: '1px solid blue',
-            fontFamily: 'Helvetica, sans-serif',
-            borderRadius: '5px',
-            marginRight: '5px',
-            cursor: 'pointer'
+            padding: '0px 5px',
+            backgroundColor: '#1f68c1',
+            color: '#fff',
+            borderRadius: '3px',
+            margin: '0 5px',
+            cursor: 'pointer',
+            fontSize: '0.8rem'
         },
 
         input: {
             outline: 'none',
             border: 'none',
-            fontSize: '14px',
-            fontFamily: 'Helvetica, sans-serif'
+            width: 'inherit'
         }
       };
       return (
@@ -96,11 +92,11 @@ class TagInput extends React.Component {
     }
 
     handleRemoveItem(index) {
-      return () => {
-        this.setState(state => ({
-          items: state.items.filter((item, i) => i !== index)
-        }));
-      }
+        return () => {
+            this.setState(state => ({
+                items: state.items.filter((item, i) => i !== index)
+            }));
+        }
     }
 }
 

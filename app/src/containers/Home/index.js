@@ -21,40 +21,47 @@ class HomeContainer extends React.Component {
                 name: '',
                 url: '',
                 tags: []
-            }
+            },
+            filterTextTag: ''
         };
     }
 
     render() {
         return (
             <section className="main">
-                <Container>
+                <Container className="main_content">
                     <Row >
                         <Col sm={1}>
-                            <a href="javascript:void(0);" onClick={() => this.showFilter()}>Filtrar</a>
-                            <a href="javascript:void(0);" onClick={() => this.showRegisterItem()}>Cadastrar</a>
+                            <a href="javascript:void(0);" onClick={() => this.showFilter()} className={this.state.showFilter ? "active" : ""}><span class="fa fa-search"></span></a>
+                            <a href="javascript:void(0);" onClick={() => this.showRegisterItem()} className={!this.state.showFilter ? "active" : ""}><span class="far fa-plus-square"></span></a>
                         </Col>
                         { this.state.showFilter ?
                             <Col sm={11}>
                                 <FilterByTag handleFilterText={this.handleFilterText.bind(this)} />
                             </Col>
                         :
-                            <Col sm={11}>
-                                <form id="addTag" ref={(el) => this.formAddTag = el} onSubmit={(e) => this.addTag(e)}>
-                                    <input type="text" name="name" onChange={(event) => this.updateTagName(event)} placeholder="Title" />
-                                    <input type="text" name="url" onChange={(event) => this.updateTagUrl(event)} placeholder="Link" />
-                                    <TagInput placeholder="Tags" handleTagsArray={this.handleTagsArray.bind(this)} revision={this.state.revision} />
-                                    <button onClick={this.clearInput.bind(this)}>Cadastrar</button>
-                                </form>
-                            </Col>
+                            <form id="addTag" className="col-sm-11" ref={(el) => this.formAddTag = el} onSubmit={(e) => this.addTag(e)}>
+                                <Row>
+                                    <Col sm={6}>
+                                        <input type="text" name="name" onChange={(event) => this.updateTagName(event)} placeholder="Title" required />
+                                    </Col>
+                                    <Col sm={6}>
+                                        <input type="text" name="url" onChange={(event) => this.updateTagUrl(event)} placeholder="Link" required />
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col sm={12}>
+                                            <TagInput placeholder="Tags" handleTagsArray={this.handleTagsArray.bind(this)} revision={this.state.revision} />
+                                    </Col>
+                                </Row>
+                                <button onClick={this.clearInput.bind(this)}>Cadastrar</button>
+                            </form>
                         }
 
                     </Row>
-                </Container>
-                <Container>
-                    <Row>
+                    <Row className="tag_listing">
                         <Col sm={12}>
-                            <TagList />
+                            <TagList filterByTag={this.state.filterTextTag} />
                         </Col>
                     </Row>
                 </Container>
@@ -83,6 +90,7 @@ class HomeContainer extends React.Component {
             tags: []
         }});
         this.formAddTag.reset();
+        this.clearInput.bind(this)
     }
 
     updateTagName(event) {
@@ -104,7 +112,7 @@ class HomeContainer extends React.Component {
     }
 
     handleFilterText(props) {
-
+        this.setState({filterTextTag: props});
     }
 
     clearInput() {

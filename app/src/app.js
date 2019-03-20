@@ -12,7 +12,7 @@ class App extends Component {
                 <Container>
                     <Row>
                         <Col sm={12}>
-                            {/* <span class="logo">BEBLUE</span> Front-End test */}
+                            <span class="logo">BEBLUE</span> Front-End test
                         </Col>
                     </Row>
                 </Container>

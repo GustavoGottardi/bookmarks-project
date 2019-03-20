@@ -14,6 +14,7 @@ export const tagReducers = (state = initialState, action = {}) => {
             break;
         case 'DELETE_ITEM':
             return state.filter((item, i) => i !== action.payload)
+            break;
         default:
         return state;
     }

@@ -1,0 +1,104 @@
+body {
+    background: #f1f3f4;
+    header {
+        color: #a2acb4;
+        padding: 30px 0 ;
+        .container {
+            width: 950px;
+            .logo {
+                color: #1f68c1;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .main {
+        .main_content {
+            width: 950px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+
+
+            a {
+                .fa,
+                .far {
+                    color: #a2acb4;
+                    font-size: 1.2rem;
+                    margin: 8px 11px 0 0;
+                }
+
+                &:last-child {
+                    .fa,
+                    .far {
+                        margin: 0;
+                    }
+                }
+
+                &.active {
+                    span {
+                        color: #1f68c1;
+                    }
+                }
+            }
+
+            input {
+                width: 100%;
+                border: 1px solid #ddd;
+                padding: 5px 5px;
+                border-radius: 5px;
+            }
+
+            label {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            button {
+                display: none;
+            }
+
+            .tag_listing {
+                margin-top: 40px;
+                .row {
+                    border-bottom: 1px solid #ddd;
+                    padding: 30px 0;
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                    .line {
+                        margin: 0 0 10px 0;
+                        color: #a2acb4;
+                        &.url {
+                            color: #289fff;
+                        }
+                        &.tag_content {
+                            .tags {
+                                display: inline-block;
+                                padding: 0px 5px;
+                                background-color: #1f68c1;
+                                color: #fff;
+                                border-radius: 3px;
+                                margin: 0 5px;
+                                cursor: pointer;
+                                font-size: 0.8rem;
+                                &:first-child {
+                                    margin: 0 5px 0 0;
+                                }
+                            }
+                        }
+                    }
+                    .trash {
+                        color: #a2acb4;
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
