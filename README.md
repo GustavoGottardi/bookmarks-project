@@ -3,8 +3,10 @@ Bookmarks Project, add and filter bookmarks by tags.
 
 ## To run project
 
-- In your terminal clone this project: 
+- In your terminal clone this project:
+```bash
 git clone git@github.com:GustavoGottardi/bookmarks-project.git
+```
 
 - Enter in folder of project
 ```bash
